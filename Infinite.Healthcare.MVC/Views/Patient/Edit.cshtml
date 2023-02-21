@@ -1,0 +1,67 @@
+﻿@model PatientViewModel
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit a Doctor</h1>
+<body class="img">
+<form asp-controller="Patient" asp-action="Edit" method="post">
+    <div class="row">
+        <div class="col-md-4">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="mb-2">
+                <label asp-for="PatientName" class="form-label"></label>
+                <input type="text" asp-for="PatientName" class="form-control" />
+                <span asp-validation-for="PatientName"></span>
+            </div>
+            <div class="mb-2">
+                <label asp-for="MobileNo" class="form-label"></label>
+                <input type="text" asp-for="MobileNo" class="form-control" />
+                <span asp-validation-for="MobileNo"></span>
+            </div>
+
+            <div class="mb-2">
+                <label asp-for="Gender" class="form-label"></label>
+                <input type="text" asp-for="Gender" class="form-control" />
+                <span asp-validation-for="Gender"></span>
+            </div>
+
+            <div class="mb-2">
+                <label asp-for="Age" class="form-label"></label>
+                <input type="text" asp-for="Age" class="form-control" />
+                <span asp-validation-for="Age"></span>
+            </div>
+            <div class="mb-2">
+                <label asp-for="Patientcity" class="form-label"></label>
+                <input type="text" asp-for="Patientcity" class="form-control" />
+                <span asp-validation-for="Patientcity"></span>
+            </div>
+            <div class="mb-2">
+                <label asp-for="email" class="form-label"></label>
+                <input type="text" asp-for="email" class="form-control" />
+                <span asp-validation-for="email"></span>
+            </div>
+            <div class="mt-2 d-grid">
+                <input type="submit" class="btn btn-primary" value="Update Doctor" />
+            </div>
+        </div>
+    </div>
+</form>
+</body>
+
+<style>
+    .img {
+        background-image: url('https://t4.ftcdn.net/jpg/01/18/42/59/360_F_118425925_n2GZJR42P1ai0p3qYmNe375LCd6kQ9R4.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+</style>
+
+@section Scripts{
+
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial.cshtml");
+    }
+}
+
+

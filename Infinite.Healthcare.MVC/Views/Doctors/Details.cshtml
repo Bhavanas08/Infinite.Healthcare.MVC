@@ -1,0 +1,28 @@
+﻿@model DoctorViewModel
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Doctor Details</h1>
+<body class="img">
+<div class="row">
+    <div class="col-md-5">
+        <ul class="list-group">
+            <li class="list-group-item"><b>DoctorName :</b> @Model.DoctorName</li>
+            <li class="list-group-item"><b>Experience :</b>@Model.Experience</li>
+            <li class="list-group-item"><b>age:</b>@Model.age</li>
+            <li class="list-group-item"><b>Qualification:</b>@Model.Qualification</li>
+
+        </ul>
+        <a asp-controller="Doctors" asp-action="Index">Back to List</a>
+    </div>
+</div>
+</body>
+
+<style>
+    .img {
+        background-image: url('https://c1.wallpaperflare.com/preview/937/818/491/stethoscope-doctor-md-medical-health-hospital.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+</style>

@@ -1,0 +1,68 @@
+﻿@model IEnumerable<DoctorViewModel>
+@{
+    ViewData["Title"] = "Index";
+}
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css">
+
+<body class="img">
+
+<div class="row">
+    <div class="col-md-7">
+        <div class="row">
+            <div class="col">
+                <h2>List of Doctors</h2>
+            </div>
+            <div class="col text-end">
+                <a asp-controller="Doctors" asp-action="Create" class="btn btn-warning">Create new Doctor</a>
+            </div>
+        </div>
+        <div class="row">
+            <table id="tblDoctors " class="table table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th>Doctor Name</th>
+                        <th>Qualification</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.DoctorName</td>
+                            <td>@item.Qualification</td>
+                            <td>
+                                <a asp-controller="Doctors" asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                                <a asp-controller="Doctors" asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                                <a asp-controller="Doctors" asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+
+
+
+
+<style>
+    .img {
+        background-image: url('https://images.pexels.com/photos/4386466/pexels-photo-4386466.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+</style>
+
+@section scripts{
+    <script type="text/javascript" src="https://cdn.datatables.net/1.13.1/js/jquery.datatables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.13.1/js/datatables.bootstrap5.min.js"></script>
+    <script>
+        $(document).ready(function ($) {
+            $('#tbldoctors').datatable();
+        });
+    </script>
+}
+
